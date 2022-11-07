@@ -1,0 +1,25 @@
+{
+  "name": "se3316-jhader2-lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^13.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhader2/se3316-jhader2-lab3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jhader2/se3316-jhader2-lab3/issues"
+  },
+  "homepage": "https://github.com/Jhader2/se3316-jhader2-lab3#readme"
+}
