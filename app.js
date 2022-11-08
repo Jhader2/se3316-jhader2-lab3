@@ -1,3 +1,4 @@
+/*
 const Joi = require('joi');
 const express = require('express');
 const app = express();
@@ -47,3 +48,4 @@ app.get('/api/courses/:id',(req,res) => {
 const port = process.env.PORT||3000;
 
 app.listen(3000, () => console.log(`listening on ${port}`));
+*/
