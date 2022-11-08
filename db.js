@@ -1,6 +1,7 @@
 const fs = require("fs");
 const sqlite3 = require("sqlite3").verbose();
-const filepath = "./population.db";
+const filepath = "./music.db";
+
 
 function connectToDatabase() {
     if (fs.existsSync(filepath)) {
@@ -10,26 +11,28 @@ function connectToDatabase() {
         if (error) {
           return console.error(error.message);
         }
-        createAlbumTable(db);
-        createArtistsTable(db);
-        createGenreTable(db);
-        createTracksTable(db);
+       // createAlbumTable(db);
+      //  createArtistsTable(db);
+       // createGenreTable(db);
+       // createTracksTable(db);
         console.log("Connected to the database successfully");
       });
       return db;
     }
 }
 
+
 function  createGenreTable(db){
     db.exec(`
     CREATE TABLE genres
     (
-        genre_id INT PRIMARY KEY
-        parent INT
+        genre_id INT,
+        parent INT,
         title  VARCHAR(255)
     )`
  );
 }
+/*
 function createAlbumTable(db){
     db.exec(`
     CREATE TABLE raw_albums
@@ -72,4 +75,5 @@ function createTracksTable(db){
     )
     `)
 }
+*/
 module.exports = connectToDatabase();
