@@ -36,20 +36,11 @@ app.post('/api/courses', (req,res)=>{
     res.send(course);
 });
 
+
 app.get('/api/courses/:id',(req,res) => {
     const course = courses.find(c=>c.id === parseInt(req.params.id));
     if (!course) res.status(404).send("course with that id not found");
     res.send(course);
-});
-
-app.put('api/courses/:id', (req,res) => {
-    //Look up course
-    // If not existing return 404
-
-    //validate
-    //if invalid reutnr 400 - bad request
-
-    //uupdate course
 });
 
 // PORT
