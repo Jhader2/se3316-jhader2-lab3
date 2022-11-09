@@ -26,6 +26,19 @@ app.get('/api/raw_artists',(req,res)=>{
     });
 });
 
+//URL for distinct artist IDs
+app.get('/api/raw_artists/:id',(req,res)=>{
+    artistSearch(req,res)
+});
+
+
+function artistSearch(req,res){
+    let aQuery = `SELECT * FROM raw_artists WHERE ???`   
+}
+
+
+
+
 app.get('/api/genres',(req,res)=>{
   
     db.all(`SELECT * FROM genres`,[],(err,rows)=>{
