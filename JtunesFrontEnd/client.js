@@ -4,52 +4,34 @@ const div = document.createElement("div");
 const element = document.getElementById("inserts");
 element.appendChild(div);
 
+
 function searchArtistID(){
     let url = "/api/raw_artists";
     let inputID = document.getElementById("searchArtistID").value;
-    
     
     fetch(url)
         .then(res => res.json())
         .then(artist =>{
             
-            console.log(artist.data[inputID].artist_id);
+            
             let num = 0;
             console.log(parseInt(artist.data[num].artist_id));
             console.log(inputID);
 
             while(num <= artist.data.length){
-                if(inputID ===artist.data[num].artist_id)
-                {console.log("great success");}
-                num++;
-            }
-
-
-            /*
-            const para = document.createElement("p");
-            var text = document.createTextNode("\nartist_id: " + artist.data[inputID].artist_id);
-            para.appendChild(text);
-            element.append(para);
-            */
-            
-
+                if(parseInt(inputID) === artist.data[num].artist_id)
+                {console.log("great success");
                 const para = document.createElement("p");
-                var text = document.createTextNode("\nartist_id: " + artist.data[inputID].artist_id);
+                var text = document.createTextNode("\nartist_id: " + artist.data[num].artist_id + " artist_active_year_begin: " + 
+                artist.data[num].artist_active_year_begin + " artist_active_year_end: " + artist.data[num].artist_active_year_end +
+                " artist_associated_labels: " + artist.data[num].artist_associated_labels + " artist_favorites: " +
+                artist.data[num].artist_favorites + " artist_name: " + artist.data[num].artist_name)
                 para.appendChild(text);
-                element.append(para);
-                
-              
-            
-})
-}
-/*for(i = 0;i<pokeArray.length;i++) {
+                element.append(para);}
+                num++;  
+            }  })}
 
-    let poke = pokeArray[i].name.toLowerCase();
-    //const isVisible = element.name.includes(value);
-    if(poke.includes(input) && input != ""){
-        div.appendChild(pokeArray[i].el.cloneNode(true));
-    }
-}*/
+
 
 
 let click = 1;
