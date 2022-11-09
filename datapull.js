@@ -16,9 +16,6 @@ let db = new sqlite3.Database('./music.db', (err) => {
 });
 
 
-app.get('/',(req, res) => {
-    res.send("hello world");
-});
 
 app.get('/api/raw_artists',(req,res)=>{
   
@@ -27,21 +24,22 @@ app.get('/api/raw_artists',(req,res)=>{
         return res.json({status:200,  data:rows, success:true});
         
     });
-    
-    /*
-    try{
-        db.all(sql[])
-
-    }catch(error){
-        return res.json({
-            status:400,
-            success: false,
-        })
-    }*/
 });
 
+app.get('/api/genres',(req,res)=>{
+  
+    db.all(`SELECT * FROM genres`,[],(err,rows)=>{
+        if (err) return console.error(err.message);
+        return res.json({status:200,  data:rows, success:true});
+        
+    });
+});
 
+app.use('/', express.static('JtunesFrontEnd'));
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '/index.html'));
+  });
 
 
 
