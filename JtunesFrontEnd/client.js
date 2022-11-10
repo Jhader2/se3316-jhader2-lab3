@@ -116,6 +116,29 @@ function searchAgg(){
         
     })
 }
+function searchNew(){
+    let url = "/api/raw_artists/name/";
+    const inputID = document.getElementById("searchNew").value;
+
+    console.log(inputID);
+    let inputLo = inputID.toLowerCase();
+
+    fetch(url+inputLo)
+    .then(resp => resp.json())
+    .then((artists) => {
+        console.log(artists.data[0].artist_name);
+                    let num = 0;
+                    while(num <= 10000){
+
+                    const para = document.createElement("p");
+                    var text = document.createTextNode(artists.data[num].artist_id);
+                    para.appendChild(text);
+                    element.append(para);
+                    num++;
+                }
+        
+    })
+}
 
 
 
