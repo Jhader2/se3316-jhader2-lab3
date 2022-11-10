@@ -9,13 +9,25 @@
   
 
     <div class="getGenres">
+        <button id= "button" type="button" onclick="clearResults()">Clear Page</button>
+    </br>
         <button id= "button" type="button" onclick="getGenres()">Get Genres</button>
     </div>
 
     <div class="search">
-        <p>Search Artist</p>
-        <input id="searchArtistID" type="search" onsearch="searchArtistID()"> 
+        <p>Search Artist ID</p>
+        <input id="searchArtist" type="search" onsearch="searchArtist()"> 
+        <p>Search Track ID</p>
+        <input id="searchTrack" type="search" onsearch="searchTrackID()"> 
+        <p>Search for Track IDs based on album name or track name</p>
+        <input id="searchAgg" type="search" onsearch="searchAgg()"> 
+
+
+      
+        <p>Search Artist by Name</p>
+        <input id="" type="search" onsearch=""> 
     </div>
+
 
     <div id="inserts"> </div>
 
