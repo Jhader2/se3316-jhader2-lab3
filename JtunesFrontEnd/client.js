@@ -126,9 +126,9 @@ function searchNew(){
     fetch(url+inputLo)
     .then(resp => resp.json())
     .then((artists) => {
-        console.log(artists.data[0].artist_name);
+        console.log(artists.data.length);
                     let num = 0;
-                    while(num <= 10000){
+                    while(num <= parseInt(artists.data.length)){
 
                     const para = document.createElement("p");
                     var text = document.createTextNode(artists.data[num].artist_id);
@@ -139,78 +139,40 @@ function searchNew(){
         
     })
 }
+function searchTrackName(){
+    let url = "/api/tracks/title/";
+    const inputID = document.getElementById("searchTrackName").value;
 
+    console.log(inputID);
+    let inputLo = inputID.toLowerCase();
 
+    fetch(url+inputLo)
+    .then(resp => resp.json())
+    .then((tracks) => {
+        console.log(tracks.data);
 
+        let num = 0;
 
-/*
-function searchArtistID(){
-    let url = "/api/raw_artists";
-    let inputID = document.getElementById("searchArtistID").value;
-    
-    fetch(url)
-        .then(res => res.json())
-        .then(artist =>{
-            
-            
-            let num = 0;
-            console.log(parseInt(artist.data[num].artist_id));
-            console.log(inputID);
-
-            while(num <= artist.data.length){
-                if(parseInt(inputID) === artist.data[num].artist_id)
-                {console.log("great success");
-                const para = document.createElement("p");
-                var text = document.createTextNode("\nartist_id: " + artist.data[num].artist_id + " artist_active_year_begin: " + 
-                artist.data[num].artist_active_year_begin + " artist_active_year_end: " + artist.data[num].artist_active_year_end +
-                " artist_associated_labels: " + artist.data[num].artist_associated_labels + " artist_favorites: " +
-                artist.data[num].artist_favorites + " artist_name: " + artist.data[num].artist_name)
-                para.appendChild(text);
-                element.append(para);}
-                num++;  
-            }  })
-}
-
-function searchTrack(){
-    let url = "/api/tracks";
-    let inputID = document.getElementById("searchTrackID").value;
-    
-    
-
-    fetch(url)
-        .then(res => res.json())
-        .then(track =>{
-            let num = 0;
-            console.log(parseInt(track.data[num].track_id));
-
-            while(num<= track.data.length){
-                if(parseInt(inputID)===parseInt(track.data[num].track_id)){
-                    console.log("success");
-                    
-                    const para = document.createElement("p");
-                    var text = document.createTextNode(
-                        "album_id: " + track.data[num].album_id +
-                        " album_title: " + track.data[num].album_title +
-                        " artist_id: " + track.data[num].artist_id +
-                        " artist_name: " + track.data[num].artist_name+
-                        " tags: " + track.data[num].tags +
-                        " track_date_created: " + track.data[num].track_date_created +
-                        " track_date_recorded: " + track.data[num].track_date_recorded +
-                        " track_duration: " + track.data[num].track_duration +
-                        " track_genres: " + track.data[num].track_genres +
-                        " track_number: " + track.data[num].track_number +
-                        " track_title: " + track.data[num].track_title                 
-                        );
-
+        while(num <= 50){
+            const para = document.createElement("p");
+                    var text = document.createTextNode(tracks.data[num].track_title);
                     para.appendChild(text);
                     element.append(para);
+                    num++;
+        }
+                    
+                    
 
-                }
-                num++;
-            }
-            
-          
-            
-  })
+                   
+                
+        
+    })
 }
-*/
+
+
+
+
+    
+    
+
+   

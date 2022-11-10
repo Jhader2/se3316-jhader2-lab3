@@ -118,7 +118,17 @@ app.get('/api/raw_artists/name/:id', (req, res) => {
         res.json({"data":row})
       });
     });
-
+app.get('/api/tracks/title/:track', (req,res)=> {
+    var sql = "select*from raw_tracks where track_title like  '%' || ? || '%'"
+    var params = [req.params.track]
+    db.all(sql, params, (err, row) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({"data":row})
+      });
+});
 
 /*
 app.get("/api/tracks/:id", (req, res, next) => {
