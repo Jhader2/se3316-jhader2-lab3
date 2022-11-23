@@ -1,0 +1,4 @@
+raw_albums.csv filter=lfs diff=lfs merge=lfs -text
+raw_artists.csv filter=lfs diff=lfs merge=lfs -text
+raw_tracks.csv filter=lfs diff=lfs merge=lfs -text
+genres.csv filter=lfs diff=lfs merge=lfs -text
